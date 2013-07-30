@@ -519,7 +519,7 @@ unsigned _stdcall htloop(void *x)
 unsigned htloop(void *x)
 #endif
 {
-	int sid=(int)x;
+	int sid=(int)(long)x;
 
 	conn[sid].id=pthread_self();
 #ifndef WIN32
@@ -602,7 +602,7 @@ void accept_loop(void *x)
 #endif
 		} else {
 			conn[i].id=1;
-			if (pthread_create(&conn[i].handle, &thr_attr, (void*(*)(void*)) htloop, (void *)i)==-1) {
+			if (pthread_create(&conn[i].handle, &thr_attr, (void * (*)(void*)) htloop, (void *)(long)i)==-1) {
 				logerror("htloop() failed...");
 				exit(0);
 			}
