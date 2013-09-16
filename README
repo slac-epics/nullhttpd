@@ -1,0 +1,5 @@
+Null httpd is a very small, simple and multithreaded 
+web server for Linux and Windows. 
+Some modifications were made by Diamond Light Source to be used with
+the ffMpegServer which is a plugin for areaDetector.
+
