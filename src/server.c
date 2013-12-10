@@ -390,9 +390,9 @@ int sockinit()
 #ifdef WIN32
 			MessageBox(0, "DNS Lookup failure.", APPTITLE, MB_ICONERROR);
 #else
-			printf("DNS Lookup failure.\r\n");
+			printf("DNS Lookup failure.  nullHttpd server not available.\n");
 #endif
-			exit(0);
+			return( -1 );
 		}
 		memmove((char *)&sin.sin_addr, hp->h_addr, hp->h_length);
 	}
@@ -407,8 +407,9 @@ int sockinit()
 			MessageBox(0, "Bind error: Null httpd could not bind itself to the specified port.", APPTITLE, MB_ICONERROR);
 #else
 			perror("\nBind error");
+			printf("Bind error.  nullHttpd server not available.\n");
 #endif
-			exit(0);
+			return( -1 );
 		}
 	}
 	if (listen(ListenSocket, 50)<0) {
@@ -417,8 +418,9 @@ int sockinit()
 		closesocket(ListenSocket);
 #else
 		close(ListenSocket);
+		printf("listen error.  nullHttpd server not available.\n");
 #endif
-		exit(0);
+		return( -1 );
 	}
 #ifndef WIN32
 	printf("OK.\r\n");
