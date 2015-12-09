@@ -16,6 +16,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
 /* #includes */
 #include <ctype.h>
 #include <fcntl.h>
@@ -248,7 +249,7 @@ void fixslashes(char *pOriginal);
 int hex2int(char *pChars);
 void striprn(char *string);
 void swapchar(char *string, char oldchar, char newchar);
-char *strcasestr(char *src, char *query);
+char *strcasestr(const char *src, const char *query);
 char *strcatf(char *dest, const char *format, ...);
 int printhex(const char *format, ...);
 int printht(const char *format, ...);

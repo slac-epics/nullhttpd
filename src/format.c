@@ -92,7 +92,7 @@ void swapchar(char *string, char oldchar, char newchar)
 	}
 }
 
-char *strcasestr(char *src, char *query)
+char *strcasestr(const char *src, const char *query)
 {
 	char *pToken;
 	char Buffer[8192];
@@ -115,7 +115,7 @@ char *strcasestr(char *src, char *query)
 	}
 	pToken=strstr(Buffer, Query);
 	if (pToken!=NULL) {
-		return src+(pToken-(char *)&Buffer);
+		return (char *)( src + (pToken-&Buffer[0]) );
 	}
 	return NULL;
 }
