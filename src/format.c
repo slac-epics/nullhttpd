@@ -92,34 +92,6 @@ void swapchar(char *string, char oldchar, char newchar)
 	}
 }
 
-char *strcasestr(const char *src, const char *query)
-{
-	char *pToken;
-	char Buffer[8192];
-	char Query[64];
-	int loop;
-
-	if (strlen(src)==0) return NULL;
-	memset(Buffer, 0, sizeof(Buffer));
-	strncpy(Buffer, src, sizeof(Buffer)-1);
-	strncpy(Query, query, sizeof(Query)-1);
-	loop=0;
-	while (Buffer[loop]) {
-		Buffer[loop]=toupper(Buffer[loop]);
-		loop++;
-	}
-	loop=0;
-	while (Query[loop]) {
-		Query[loop]=toupper(Query[loop]);
-		loop++;
-	}
-	pToken=strstr(Buffer, Query);
-	if (pToken!=NULL) {
-		return (char *)( src + (pToken-&Buffer[0]) );
-	}
-	return NULL;
-}
-
 char *strcatf(char *dest, const char *format, ...)
 {
 	char catbuffer[1024];
