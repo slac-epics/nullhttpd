@@ -19,6 +19,15 @@
 #define _GNU_SOURCE
 #include "nullhttpd.h"
 
+#ifdef _WIN32
+HINSTANCE hInst;
+#else
+Lock_t Lock;
+char program_name[255];
+CONFIG config;
+CONNECTION *conn;
+#endif
+
 #define RFC1123FMT "%a, %d %b %Y %H:%M:%S GMT"
 
 void printerror(int sid, int status, char* title, char* text)
