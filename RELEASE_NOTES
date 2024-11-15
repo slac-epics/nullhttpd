@@ -3,5 +3,8 @@
 #  Name: RELEASE_NOTES
 #
 #==============================================================
+R0.5.1-0.4.1: 2024-11-15 Jeremy Lorelli
+    Fix linker errors on newer GCC versions
+
 R0.5.1-0.4.0: 2017-04-26 Hugo Slepicka
     Changes needed for the new git workflow.
